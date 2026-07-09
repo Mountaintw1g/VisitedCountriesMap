@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Travel Map</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header-text">
+        <h1>My Travel Map</h1>
+        <p class="subtitle">Click a country to mark it as visited.</p>
+      </div>
+      <div class="stats" id="stats">
+        <div class="stat">
+          <span class="stat-value" id="statCount">0</span>
+          <span class="stat-label">visited</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="statPercent">0%</span>
+          <span class="stat-label">of the world</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" list="countryList" placeholder="Search a country…" autocomplete="off" />
+        <datalist id="countryList"></datalist>
+      </div>
+      <div class="toolbar-actions">
+        <button id="btnExport" class="btn btn-primary">Export as image</button>
+        <button id="btnPrint" class="btn">Print</button>
+        <button id="btnClear" class="btn btn-danger">Clear all</button>
+      </div>
+    </div>
+
+    <main class="map-card" id="mapCard">
+      <div class="map-frame">
+        <svg id="map" viewBox="0 0 960 520" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="tooltip" id="tooltip"></div>
+      </div>
+      <p class="map-hint">Tip: use the search box above for tiny countries that are hard to click.</p>
+    </main>
+
+    <section class="list-card">
+      <h2>Countries visited (<span id="listCount">0</span>)</h2>
+      <div id="emptyState" class="empty-state">
+        No countries yet — click the map or search above to add your first one.
+      </div>
+      <ul id="countryChips" class="chips"></ul>
+    </section>
+
+    <footer class="footer">
+      Map data © <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>. Your list is saved only in this browser (local storage).
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
